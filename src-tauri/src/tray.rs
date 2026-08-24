@@ -12,6 +12,7 @@ use crate::error::AppError;
 use crate::store::AppState;
 
 const TEMPLATE_TYPE_OFFICIAL_SUBSCRIPTION: &str = "official_subscription";
+const MAIAI_WEBSITE_URL: &str = "https://maiai.ai/";
 const H_TIER_NAMES: &[&str] = &[crate::services::subscription::TIER_FIVE_HOUR];
 const W_TIER_NAMES: &[&str] = &[
     crate::services::subscription::TIER_WEEKLY_LIMIT,
@@ -101,7 +102,7 @@ impl TrayTexts {
         match language {
             "en" => Self {
                 show_main: "Open main window",
-                open_website: "Open MaiAI project page",
+                open_website: "Open MaiAI website",
                 no_providers_label: "(no providers)",
                 lightweight_mode: "Lightweight Mode",
                 quit: "Quit",
@@ -111,7 +112,7 @@ impl TrayTexts {
             },
             "ja" => Self {
                 show_main: "メインウィンドウを開く",
-                open_website: "MaiAI プロジェクトページを開く",
+                open_website: "MaiAI ウェブサイトを開く",
                 no_providers_label: "(プロバイダーなし)",
                 lightweight_mode: "軽量モード",
                 quit: "終了",
@@ -121,7 +122,7 @@ impl TrayTexts {
             },
             "zh-TW" => Self {
                 show_main: "開啟主介面",
-                open_website: "開啟 MaiAI 專案頁面",
+                open_website: "開啟 MaiAI 網站",
                 no_providers_label: "(無供應商)",
                 lightweight_mode: "輕量模式",
                 quit: "退出",
@@ -131,7 +132,7 @@ impl TrayTexts {
             },
             _ => Self {
                 show_main: "打开主界面",
-                open_website: "打开 MaiAI 项目主页",
+                open_website: "打开 MaiAI 网站",
                 no_providers_label: "(无供应商)",
                 lightweight_mode: "轻量模式",
                 quit: "退出",
@@ -1021,11 +1022,8 @@ pub fn handle_tray_menu_event(app: &tauri::AppHandle, event_id: &str) {
             }
         }
         "open_website" => {
-            if let Err(e) = app
-                .opener()
-                .open_url("https://gitee.com/timimai/mai-ai-switch", None::<String>)
-            {
-                log::error!("打开 MaiAI 项目主页失败: {e}");
+            if let Err(e) = app.opener().open_url(MAIAI_WEBSITE_URL, None::<String>) {
+                log::error!("打开 MaiAI 网站失败: {e}");
             }
         }
         "lightweight_mode" => {
