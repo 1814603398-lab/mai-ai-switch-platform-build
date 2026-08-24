@@ -232,7 +232,7 @@ describe("ProviderPresetSelector pure helpers", () => {
     ).toEqual(["alpha", "beta", "delta", "gamma"]);
   });
 
-  it("original 模式将官方预设置顶，其余按显示名排序", () => {
+  it("original 模式将官方预设置顶，并隐藏商业合作预设", () => {
     const mixed: TestPresetEntry[] = [
       {
         id: "restZulu",
@@ -325,15 +325,12 @@ describe("ProviderPresetSelector pure helpers", () => {
     ).toEqual([
       "officialOnly",
       "officialPrime",
-      "partnerAlpha",
       "restAlpha",
-      "primeAndPartner",
-      "partnerZeta",
       "restZulu",
     ]);
   });
 
-  it("保留带兼容元数据的预设，但不让商业标记影响排序", () => {
+  it("隐藏商业预设，但保留官方兼容元数据", () => {
     const entries: TestPresetEntry[] = [
       ...presetEntries,
       {
@@ -373,7 +370,6 @@ describe("ProviderPresetSelector pure helpers", () => {
       "beta",
       "delta",
       "gamma",
-      "partner",
     ]);
   });
 });

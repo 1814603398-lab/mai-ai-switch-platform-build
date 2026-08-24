@@ -84,10 +84,7 @@ export function RoutingActivationBrand({
         />
       )}
 
-      <motion.a
-        href="https://ccswitch.io"
-        target="_blank"
-        rel="noreferrer"
+      <motion.div
         className={cn(
           "relative z-10 text-xl font-semibold transition-colors duration-500",
           active
@@ -122,8 +119,8 @@ export function RoutingActivationBrand({
             : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
         }
       >
-        CC Switch
-      </motion.a>
+        MaiAI Agent
+      </motion.div>
 
       {showBurst && (
         <motion.span

@@ -35,14 +35,15 @@ describe("GrokBuildProviderForm", () => {
     expect(screen.queryByRole("button", { name: /BytePlus/ })).toBeNull();
     expect(screen.queryByRole("button", { name: /Kimi/ })).toBeNull();
 
-    await user.click(screen.getByRole("button", { name: /PatewayAI/ }));
+    expect(screen.queryByRole("button", { name: /PatewayAI/ })).toBeNull();
+    await user.click(screen.getByRole("button", { name: /OpenRouter/ }));
 
     const baseUrlInput =
       container.querySelector<HTMLInputElement>("#codexBaseUrl");
     const nameInput =
       container.querySelector<HTMLInputElement>('input[name="name"]');
-    expect(baseUrlInput?.value).toBe("https://api.pateway.ai/v1");
-    expect(nameInput?.value).toBe("PatewayAI");
+    expect(baseUrlInput?.value).toBe("https://openrouter.ai/api/v1");
+    expect(nameInput?.value).toBe("OpenRouter");
   });
 
   it("submits a complete config.toml payload with Grok defaults", async () => {

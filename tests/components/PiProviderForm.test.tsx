@@ -753,7 +753,7 @@ describe("PiProviderForm", () => {
       />,
     );
 
-    fireEvent.click(screen.getByText("Kimi", { selector: "span" }));
+    fireEvent.click(screen.getByText("DeepSeek", { selector: "span" }));
     fireEvent.change(screen.getByLabelText("pi.form.credential"), {
       target: { value: "literal-key" },
     });
@@ -761,13 +761,13 @@ describe("PiProviderForm", () => {
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1));
     expect(onSubmit.mock.calls[0][0]).toMatchObject({
-      providerKey: "cc-switch-kimi",
-      name: "Kimi",
+      providerKey: "cc-switch-deep-seek",
+      name: "DeepSeek",
       presetCategory: "cn_official",
     });
     expect(JSON.parse(onSubmit.mock.calls[0][0].settingsConfig)).toMatchObject({
       api: "openai-completions",
-      baseUrl: "https://api.moonshot.cn/v1",
+      baseUrl: "https://api.deepseek.com/v1",
       apiKey: "literal-key",
     });
     expect(
@@ -786,7 +786,7 @@ describe("PiProviderForm", () => {
       />,
     );
 
-    fireEvent.click(screen.getByText("Kimi", { selector: "span" }));
+    fireEvent.click(screen.getByText("DeepSeek", { selector: "span" }));
     fireEvent.change(screen.getByLabelText("pi.form.credential"), {
       target: { value: "literal-key" },
     });
@@ -799,8 +799,8 @@ describe("PiProviderForm", () => {
     const submitted = onSubmit.mock.calls[0][0];
     const config = JSON.parse(submitted.settingsConfig);
     expect(config.models.map((model: { id: string }) => model.id)).toEqual([
-      "kimi-k2.7-code",
-      "kimi-k3",
+      "deepseek-v4-pro",
+      "deepseek-v4-flash",
     ]);
     expect(
       config.models.map((model: { id: string; name?: string }) => ({
@@ -808,13 +808,13 @@ describe("PiProviderForm", () => {
         name: model.name,
       })),
     ).toEqual([
-      { id: "kimi-k2.7-code", name: "Kimi K2.7 Code" },
-      { id: "kimi-k3", name: "Kimi K3" },
+      { id: "deepseek-v4-pro", name: "DeepSeek V4 Pro" },
+      { id: "deepseek-v4-flash", name: "DeepSeek V4 Flash" },
     ]);
     for (const model of config.models) {
       expect(model).toMatchObject({
         reasoning: true,
-        input: ["text", "image"],
+        input: ["text"],
       });
       expect(model.contextWindow).toBeGreaterThan(0);
       expect(model.maxTokens).toBeGreaterThan(0);
@@ -909,7 +909,7 @@ describe("PiProviderForm", () => {
       />,
     );
 
-    fireEvent.click(screen.getByText("Kimi", { selector: "span" }));
+    fireEvent.click(screen.getByText("DeepSeek", { selector: "span" }));
     fireEvent.click(
       screen.getByRole("button", { name: "Save invalid preset" }),
     );
@@ -1315,21 +1315,21 @@ describe("PiProviderForm", () => {
       />,
     );
 
-    await user.click(screen.getByText("Kimi", { selector: "span" }));
+    await user.click(screen.getByText("DeepSeek", { selector: "span" }));
     const configEditor = screen.getByLabelText(
       "provider.configJson",
     ) as HTMLTextAreaElement;
-    expect(JSON.parse(configEditor.value).models[0].thinkingLevelMap).toEqual({
-      off: null,
-    });
+    const initialThinkingLevelMap = JSON.parse(configEditor.value).models[0]
+      .thinkingLevelMap;
+    expect(initialThinkingLevelMap).toBeDefined();
 
     await user.click(document.querySelector("#pi-provider-api-select")!);
     await user.click(
       await screen.findByRole("option", { name: "OpenAI Responses" }),
     );
-    expect(JSON.parse(configEditor.value).models[0].thinkingLevelMap).toEqual({
-      off: null,
-    });
+    expect(JSON.parse(configEditor.value).models[0].thinkingLevelMap).toEqual(
+      initialThinkingLevelMap,
+    );
 
     await user.click(document.querySelector("#pi-provider-api-select")!);
     await user.click(
@@ -1337,9 +1337,9 @@ describe("PiProviderForm", () => {
         name: "OpenAI Chat Completions",
       }),
     );
-    expect(JSON.parse(configEditor.value).models[0].thinkingLevelMap).toEqual({
-      off: null,
-    });
+    expect(JSON.parse(configEditor.value).models[0].thinkingLevelMap).toEqual(
+      initialThinkingLevelMap,
+    );
   });
 
   it("edits Pi thinking-map missing, null, and string states from the collapsed capability area", async () => {
@@ -1587,7 +1587,7 @@ describe("PiProviderForm", () => {
       />,
     );
 
-    await user.click(screen.getByText("Kimi", { selector: "span" }));
+    await user.click(screen.getByText("DeepSeek", { selector: "span" }));
     const configEditor = screen.getByLabelText(
       "provider.configJson",
     ) as HTMLTextAreaElement;

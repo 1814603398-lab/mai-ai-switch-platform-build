@@ -15,7 +15,7 @@ fn normalize_endpoint(value: &str) -> Result<String, String> {
 
 fn client() -> Result<Client, String> {
     Client::builder()
-        .user_agent("CC-Switch-SecDev/1.0")
+        .user_agent("MaiAI-Agent/1.0")
         .connect_timeout(std::time::Duration::from_secs(10))
         .timeout(std::time::Duration::from_secs(30))
         .build()
@@ -29,7 +29,9 @@ async fn request_json(
     body: Option<Value>,
 ) -> Result<Value, String> {
     let client = client()?;
-    let mut request = client.request(method, url).header("Accept", "application/json");
+    let mut request = client
+        .request(method, url)
+        .header("Accept", "application/json");
     if let Some(token) = bearer.filter(|value| !value.is_empty()) {
         request = request.bearer_auth(token);
     }

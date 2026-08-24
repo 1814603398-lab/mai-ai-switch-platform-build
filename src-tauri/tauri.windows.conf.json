@@ -4,7 +4,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "CC Switch",
+        "title": "MaiAI Agent",
         "titleBarStyle": "Visible",
         "visible": false,
         "minWidth": 900,

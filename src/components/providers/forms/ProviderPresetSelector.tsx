@@ -18,6 +18,7 @@ import {
   universalProviderPresets,
   type UniversalProviderPreset,
 } from "@/config/universalProviderPresets";
+import { isCommercialPartnerPreset } from "@/config/presetVisibility";
 import { ProviderIcon } from "@/components/ProviderIcon";
 
 type PresetTranslator = (key: string) => unknown;
@@ -114,9 +115,17 @@ export function getVisiblePresetEntries(
 ): PresetEntry[] {
   const { query, sortMode, t } = options;
 
-  // Partner metadata is retained for imported configurations, but it does not
-  // affect the order or expose any promotional entry point in the renderer.
-  return sortPresetEntries(filterPresetEntries(entries, query, t), sortMode, t);
+  // Keep partner metadata for compatibility with imported configurations, but
+  // hide those built-in entries from the add-provider flow. Official
+  // integrations are exempt by isCommercialPartnerPreset.
+  const nonCommercialEntries = entries.filter(
+    (entry) => !isCommercialPartnerPreset(entry.preset),
+  );
+  return sortPresetEntries(
+    filterPresetEntries(nonCommercialEntries, query, t),
+    sortMode,
+    t,
+  );
 }
 
 interface ProviderPresetSelectorProps {

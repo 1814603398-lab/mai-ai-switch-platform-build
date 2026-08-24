@@ -132,19 +132,30 @@ function getUser(payload: { data?: unknown }): Record<string, unknown> {
   return user ?? data ?? {};
 }
 
-function getModelList(payload: { data?: unknown }): string[] {
+export function getModelList(payload: { data?: unknown }): string[] {
   const data = payloadData(payload);
   const record = asRecord(data);
   const values = Array.isArray(data)
     ? data
     : Array.isArray(record?.models)
       ? record.models
-      : [];
+      : Array.isArray(record?.data)
+        ? record.data
+        : [];
   return Array.from(
     new Set(
       values
-        .filter((item): item is string => typeof item === "string")
-        .map((item) => item.trim())
+        .map((item) => {
+          if (typeof item === "string") return item.trim();
+          const itemRecord = asRecord(item);
+          for (const key of ["id", "name", "model"]) {
+            const value = itemRecord?.[key];
+            if (typeof value === "string" && value.trim()) {
+              return value.trim();
+            }
+          }
+          return "";
+        })
         .filter(Boolean),
     ),
   ).sort((a, b) => a.localeCompare(b));
@@ -316,7 +327,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
         }
       }
       if (!resolvedKey) {
-        const generatedName = `CC Switch - ${new Date()
+        const generatedName = `MaiAI Agent - ${new Date()
           .toISOString()
           .slice(0, 10)}-${Date.now().toString().slice(-4)}`;
         setApiKeyName(generatedName);
@@ -648,7 +659,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
               一次登录，自动配置多个 Agent
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-              CC Switch 会从 New API
+              MaiAI Agent 会从 New API
               读取可用模型，自动取得模型令牌，并把正确配置写入 Claude
               Code、Codex 和 OpenCode。
             </p>
@@ -829,7 +840,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
               <div className="setup-note mt-4">
                 <LockKeyhole className="h-4 w-4" />
                 <span>
-                  密码不会写入配置文件，也不会发送到 CC Switch
+                  密码不会写入配置文件，也不会发送到 MaiAI Agent
                   以外的服务。请求由桌面端 Rust 直接发送至你填写的 New API
                   地址。
                 </span>

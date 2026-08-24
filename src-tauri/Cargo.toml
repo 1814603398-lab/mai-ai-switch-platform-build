@@ -1,10 +1,10 @@
 [package]
-name = "cc-switch"
+name = "mai-ai-agent"
 version = "3.20.0"
-description = "All-in-One Assistant for Claude Code, Codex & Gemini CLI"
-authors = ["Jason Young"]
+description = "MaiAI Agent configuration workspace for Claude Code, Codex, OpenCode and more"
+authors = ["MaiAI"]
 license = "MIT"
-repository = "https://github.com/farion1231/cc-switch"
+repository = "https://gitee.com/timimai/mai-ai-switch"
 edition = "2021"
 rust-version = "1.85.0"
 

@@ -52,6 +52,7 @@ import {
 } from "@/utils/grokBuildConfig";
 import { resolveProviderIcon } from "@/utils/providerIcon";
 import { GROKBUILD_OFFICIAL_PROVIDER_ID } from "@/utils/providerCapabilities";
+import { isCommercialPartnerPreset } from "@/config/presetVisibility";
 
 type GrokBuildProviderFormProps = Omit<ProviderFormProps, "appId">;
 
@@ -62,10 +63,12 @@ const grokPresetEntries: Array<{
   preset: GrokBuildProviderPreset;
 }> = [
   { id: GROKBUILD_OFFICIAL_PROVIDER_ID, preset: grokBuildOfficialPreset },
-  ...grokBuildProviderPresets.map((preset, index) => ({
-    id: `grokbuild-${index}`,
-    preset,
-  })),
+  ...grokBuildProviderPresets
+    .filter((preset) => !isCommercialPartnerPreset(preset))
+    .map((preset, index) => ({
+      id: `grokbuild-${index}`,
+      preset,
+    })),
 ];
 
 export function GrokBuildProviderForm({

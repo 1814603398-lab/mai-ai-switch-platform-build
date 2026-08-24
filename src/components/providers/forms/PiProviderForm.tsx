@@ -51,6 +51,7 @@ import {
   type PiApiFormat,
   type PiProviderPreset,
 } from "@/config/piProviderPresets";
+import { isCommercialPartnerPreset } from "@/config/presetVisibility";
 import {
   isPiThinkingLevelMap,
   PI_THINKING_LEVELS,
@@ -760,10 +761,12 @@ export function PiProviderForm({
 
   const presetEntries = useMemo(
     () =>
-      piProviderPresets.map((preset, index) => ({
-        id: `pi-${index}`,
-        preset,
-      })),
+      piProviderPresets
+        .filter((preset) => !isCommercialPartnerPreset(preset))
+        .map((preset, index) => ({
+          id: `pi-${index}`,
+          preset,
+        })),
     [],
   );
 
