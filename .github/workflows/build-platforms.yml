@@ -69,7 +69,14 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: aarch64-apple-darwin,x86_64-apple-darwin
+          targets: aarch64-apple-darwin
+
+      - name: Install macOS cross-compilation targets
+        shell: bash
+        run: |
+          rustup target add aarch64-apple-darwin
+          rustup target add x86_64-apple-darwin
+          rustup target list --installed
 
       - name: Setup pnpm
         shell: bash
