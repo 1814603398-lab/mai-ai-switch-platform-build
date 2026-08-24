@@ -1,6 +1,6 @@
 <div align="center">
 
-# MaiAI Agent
+# MaiAI Switch
 
 ### The All-in-One Manager for Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw & Hermes Agent
 
@@ -15,11 +15,11 @@ English | [中文](README_ZH.md) | [日本語](README_JA.md) | [Deutsch](README_
 
 </div>
 
-## Why MaiAI Agent?
+## Why MaiAI Switch?
 
 Modern AI-powered coding relies on tools like Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, and Hermes — but each has its own configuration format. Switching API providers means manually editing JSON, TOML, or `.env` files, and there is no unified way to manage MCP and Skills across multiple tools.
 
-**MaiAI Agent** gives you a single desktop app to manage all supported AI tools. Instead of editing config files by hand, you get a visual interface to import providers with one click, switch between them instantly, with 50+ built-in provider presets, unified MCP and Skills management, and system tray quick switching — all backed by a reliable SQLite database with atomic writes that protect your configs from corruption.
+**MaiAI Switch** gives you a single desktop app to manage all supported AI tools. Instead of editing config files by hand, you get a visual interface to import providers with one click, switch between them instantly, with 50+ built-in provider presets, unified MCP and Skills management, and system tray quick switching — all backed by a reliable SQLite database with atomic writes that protect your configs from corruption.
 
 - **One App, Eight Tools** — Manage Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, and Hermes from a single interface
 - **No More Manual Editing** — Built-in official and utility presets; pick a provider and switch without editing JSON or TOML files
@@ -75,9 +75,9 @@ Modern AI-powered coding relies on tools like Claude Code, Claude Desktop, Codex
 ## FAQ
 
 <details>
-<summary><strong>Which AI tools does MaiAI Agent support?</strong></summary>
+<summary><strong>Which AI tools does MaiAI Switch support?</strong></summary>
 
-MaiAI Agent supports eight tools: **Claude Code**, **Claude Desktop**, **Codex**, **Gemini CLI**, **Grok Build**, **OpenCode**, **OpenClaw**, and **Hermes**. Each tool has dedicated provider presets and configuration management.
+MaiAI Switch supports eight tools: **Claude Code**, **Claude Desktop**, **Codex**, **Gemini CLI**, **Grok Build**, **OpenCode**, **OpenClaw**, and **Hermes**. Each tool has dedicated provider presets and configuration management.
 
 </details>
 
@@ -91,21 +91,21 @@ For most tools, yes — restart your terminal or the CLI tool for changes to tak
 <details>
 <summary><strong>My plugin configuration disappeared after switching providers — what happened?</strong></summary>
 
-MaiAI Agent provides a "Shared Config Snippet" feature to pass common data (beyond API keys and endpoints) between providers. Go to "Edit Provider" → "Shared Config Panel" → click "Extract from Current Provider" to save all common data. When creating a new provider, check "Write Shared Config" (enabled by default) to include plugin data in the new provider. All your configuration items are preserved in the default provider imported when you first launched the app.
+MaiAI Switch provides a "Shared Config Snippet" feature to pass common data (beyond API keys and endpoints) between providers. Go to "Edit Provider" → "Shared Config Panel" → click "Extract from Current Provider" to save all common data. When creating a new provider, check "Write Shared Config" (enabled by default) to include plugin data in the new provider. All your configuration items are preserved in the default provider imported when you first launched the app.
 
 </details>
 
 <details>
 <summary><strong>macOS installation</strong></summary>
 
-MaiAI Agent for macOS is code-signed and notarized by Apple. You can download and install it directly — no extra steps needed. We recommend using the `.dmg` installer.
+MaiAI Switch for macOS is code-signed and notarized by Apple. You can download and install it directly — no extra steps needed. We recommend using the `.dmg` installer.
 
 </details>
 
 <details>
 <summary><strong>Why can't I delete the currently active provider?</strong></summary>
 
-MaiAI Agent follows a "minimal intrusion" design principle — even if you uninstall the app, your CLI tools will continue to work normally. The system always keeps one active configuration, because deleting all configurations would make the corresponding CLI tool unusable. If you rarely use a specific CLI tool, you can hide it in Settings. To switch back to official login, see the next question.
+MaiAI Switch follows a "minimal intrusion" design principle — even if you uninstall the app, your CLI tools will continue to work normally. The system always keeps one active configuration, because deleting all configurations would make the corresponding CLI tool unusable. If you rarely use a specific CLI tool, you can hide it in Settings. To switch back to official login, see the next question.
 
 </details>
 
@@ -133,7 +133,7 @@ Add an official provider from the preset list. After switching to it, run the Lo
 The AppImage forces `GDK_BACKEND=x11` (XWayland) to avoid a historical native-Wayland crash. On newer Wayland + NVIDIA setups this can leave the web content area unclickable (the title-bar buttons still work) and black-screen on resize. Launch with the opt-in escape hatch to switch back to native Wayland:
 
 ```bash
-CC_SWITCH_GDK_BACKEND=wayland ./CC-Switch-*.AppImage
+CC_SWITCH_GDK_BACKEND=wayland ./MaiAI-Switch-*.AppImage
 ```
 
 If you launch from a desktop icon, add it to the `.desktop` `Exec=` line (e.g. `env CC_SWITCH_GDK_BACKEND=wayland /path/to/AppImage`) or set it in your session environment. The variable is generic: on tiling Wayland compositors (sway/Hyprland) where clicks don't register, try `CC_SWITCH_GDK_BACKEND=x11` instead. Leaving it unset keeps the default behavior.
@@ -174,11 +174,11 @@ For detailed guides on every feature, check out the **[User Manual](docs/user-ma
 
 ### Windows Users
 
-Download `MaiAI-Agent-Windows-x64.zip` from the [Releases](../../releases) page. It contains the Windows installer and MSI package.
+Download `MaiAI-Switch-Windows-x64.zip` from the [Releases](../../releases) page. It contains the Windows installer and MSI package.
 
 ### macOS Users
 
-Download `MaiAI-Agent-macOS-universal.zip` from the [Releases](../../releases) page. It contains the universal `.dmg` and `.app` bundle.
+Download `MaiAI-Switch-macOS-universal.zip` from the [Releases](../../releases) page. It contains the universal `.dmg` and `.app` bundle.
 
 > **Note**: Current macOS builds are not notarized. macOS may ask you to confirm the first launch in Privacy & Security.
 
@@ -188,7 +188,7 @@ Download the Linux archive from the [Releases](../../releases) page.
 
 ### Linux Users
 
-Download `MaiAI-Agent-Linux-x64.zip`. It contains `.AppImage`, `.deb`, and `.rpm` packages.
+Download `MaiAI-Switch-Linux-x64.zip`. It contains `.AppImage`, `.deb`, and `.rpm` packages.
 
 > **Flatpak**: Not included in official releases. You can build it yourself from the `.deb` — see [`flatpak/README.md`](flatpak/README.md) for instructions.
 

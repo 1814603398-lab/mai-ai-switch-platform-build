@@ -1,7 +1,7 @@
 [package]
-name = "mai-ai-agent"
+name = "mai-ai-switch"
 version = "3.20.0"
-description = "MaiAI Agent configuration workspace for Claude Code, Codex, OpenCode and more"
+description = "MaiAI Switch configuration workspace for Claude Code, Codex, OpenCode and more"
 authors = ["MaiAI"]
 license = "MIT"
 repository = "https://gitee.com/timimai/mai-ai-switch"

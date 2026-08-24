@@ -22,7 +22,7 @@ describe("RoutingActivationBrand", () => {
     expect(
       screen.getByTestId("routing-activation-particles"),
     ).toBeInTheDocument();
-    expect(screen.getByText("MaiAI Agent")).toHaveClass("text-emerald-500");
+    expect(screen.getByText("MaiAI Switch")).toHaveClass("text-emerald-500");
 
     act(() => {
       vi.advanceTimersByTime(1_000);

@@ -327,7 +327,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
         }
       }
       if (!resolvedKey) {
-        const generatedName = `MaiAI Agent - ${new Date()
+        const generatedName = `MaiAI Switch - ${new Date()
           .toISOString()
           .slice(0, 10)}-${Date.now().toString().slice(-4)}`;
         setApiKeyName(generatedName);
@@ -659,7 +659,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
               一次登录，自动配置多个 Agent
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-              MaiAI Agent 会从 New API
+              MaiAI Switch 会从 New API
               读取可用模型，自动取得模型令牌，并把正确配置写入 Claude
               Code、Codex 和 OpenCode。
             </p>
@@ -715,7 +715,9 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
                   >
                     {title}
                   </strong>
-                  <small className="text-[10px] text-muted-foreground">{detail}</small>
+                  <small className="text-[10px] text-muted-foreground">
+                    {detail}
+                  </small>
                 </span>
               </div>
             );
@@ -840,7 +842,7 @@ export function NewApiQuickSetup({ onBack, onApplied }: NewApiQuickSetupProps) {
               <div className="setup-note mt-4">
                 <LockKeyhole className="h-4 w-4" />
                 <span>
-                  密码不会写入配置文件，也不会发送到 MaiAI Agent
+                  密码不会写入配置文件，也不会发送到 MaiAI Switch
                   以外的服务。请求由桌面端 Rust 直接发送至你填写的 New API
                   地址。
                 </span>

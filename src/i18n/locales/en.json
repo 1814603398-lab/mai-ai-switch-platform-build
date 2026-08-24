@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "MaiAI Agent",
+    "title": "MaiAI Switch",
     "description": "All-in-One Assistant for Claude Code, Codex & Gemini CLI"
   },
   "common": {
@@ -45,9 +45,9 @@
     "notSet": "Not Set"
   },
   "firstRunNotice": {
-    "title": "Welcome to MaiAI Agent",
-    "bodyDefault": "MaiAI Agent lets you switch between multiple Claude Code / Codex / Gemini CLI providers with a single click. If you already had these tools configured, MaiAI Agent has saved your existing setup as a provider named “default” so none of your previous configuration is lost.",
-    "bodyOfficial": "An “Official” preset is also included in the list — click it any time you want to switch back to the official default. MaiAI Agent automatically backs up your current config to “default” before switching, so you can move back and forth freely. That's how MaiAI Agent works 😊",
+    "title": "Welcome to MaiAI Switch",
+    "bodyDefault": "MaiAI Switch lets you switch between multiple Claude Code / Codex / Gemini CLI providers with a single click. If you already had these tools configured, MaiAI Switch has saved your existing setup as a provider named “default” so none of your previous configuration is lost.",
+    "bodyOfficial": "An “Official” preset is also included in the list — click it any time you want to switch back to the official default. MaiAI Switch automatically backs up your current config to “default” before switching, so you can move back and forth freely. That's how MaiAI Switch works 😊",
     "confirm": "Got it"
   },
   "apiKeyInput": {
@@ -208,7 +208,7 @@
     "modeProxy": "Requires routing",
     "modelMappingToggle": "Needs model mapping",
     "modelMappingOffHint": "Direct mode works only when the provider accepts Claude Desktop's three role IDs (claude-sonnet-* / claude-opus-* / claude-haiku-*); for any other model name (including legacy IDs like claude-3-5-sonnet-…), select Model Mapping.",
-    "modelMappingOnHint": "Claude Desktop only accepts the three role IDs claude-sonnet-* / claude-opus-* / claude-haiku-*. In Model Mapping mode, MaiAI Agent maps these roles to your provider's actual models and keeps local routing running while in use.",
+    "modelMappingOnHint": "Claude Desktop only accepts the three role IDs claude-sonnet-* / claude-opus-* / claude-haiku-*. In Model Mapping mode, MaiAI Switch maps these roles to your provider's actual models and keeps local routing running while in use.",
     "routeMapTitle": "Model mapping",
     "routeMapHint": "Fill in the actual request model for each of the Sonnet, Opus, and Haiku tiers. Use the menu display name for branded models such as DeepSeek or Kimi. Any tier left blank inherits the Sonnet tier's model (or the first tier you filled in), so the Haiku that sub-agents call is always available.",
     "routeModelLabel": "Model role",
@@ -250,7 +250,7 @@
     "codexRestartRequired": "Switched successfully. Restart the client to apply changes.",
     "grokBuildRestartRequired": "Switched successfully. Restart Grok Build to apply changes.",
     "claudeDesktopRestartRequired": "Switched successfully. Restart Claude Desktop to apply changes.",
-    "claudeDesktopProxyRestartRequired": "Switched successfully. Keep MaiAI Agent running and restart Claude Desktop to apply changes.",
+    "claudeDesktopProxyRestartRequired": "Switched successfully. Keep MaiAI Switch running and restart Claude Desktop to apply changes.",
     "addToConfigSuccess": "Added to config",
     "removeFromConfigSuccess": "Removed from config",
     "removeFromConfigFailed": "Could not remove provider",
@@ -297,7 +297,7 @@
     "deleteProvider": "Delete Provider",
     "deleteProviderMessage": "Are you sure you want to delete provider \"{{name}}\"? This action cannot be undone.",
     "removeProvider": "Remove Provider",
-    "removeProviderMessage": "Are you sure you want to remove provider \"{{name}}\" from the configuration?\n\nAfter removal, this provider will no longer be active, but the configuration data will be retained in MaiAI Agent. You can re-add it at any time.",
+    "removeProviderMessage": "Are you sure you want to remove provider \"{{name}}\" from the configuration?\n\nAfter removal, this provider will no longer be active, but the configuration data will be retained in MaiAI Switch. You can re-add it at any time.",
     "piDefaultProviderWarning": "Pi's global default currently points to this provider. If you continue, Pi will try another available model; use /model to choose one or /login to sign in to another provider.",
     "proxy": {
       "title": "Enable Local Routing",
@@ -381,7 +381,7 @@
       },
       "globalProxy": {
         "title": "Global Outbound Proxy",
-        "description": "Configure proxy for MaiAI Agent to access external APIs"
+        "description": "Configure proxy for MaiAI Switch to access external APIs"
       },
       "data": {
         "title": "Data Management",
@@ -452,7 +452,7 @@
     "themeDark": "Dark",
     "themeSystem": "System",
     "importExport": "SQL Import/Export",
-    "importExportHint": "Import or export database SQL backups for migration or restore (import supports only backups exported by MaiAI Agent).",
+    "importExportHint": "Import or export database SQL backups for migration or restore (import supports only backups exported by MaiAI Switch).",
     "exportConfig": "Export SQL Backup",
     "selectConfigFile": "Select SQL File",
     "noFileSelected": "No configuration file selected.",
@@ -690,7 +690,7 @@
     "windowBehavior": "Window Behavior",
     "windowBehaviorHint": "Configure window minimize and Claude plugin integration policies.",
     "launchOnStartup": "Launch on Startup",
-    "launchOnStartupDescription": "Automatically run MaiAI Agent when system starts",
+    "launchOnStartupDescription": "Automatically run MaiAI Switch when system starts",
     "silentStartup": "Silent Startup",
     "silentStartupDescription": "Start in background mode without showing main window",
     "autoLaunchFailed": "Failed to set auto-launch",
@@ -723,8 +723,8 @@
     },
     "skillStorage": {
       "title": "Skill Storage Location",
-      "description": "Choose where MaiAI Agent stores the master copies of your skills",
-      "ccSwitch": "MaiAI Agent",
+      "description": "Choose where MaiAI Switch stores the master copies of your skills",
+      "ccSwitch": "MaiAI Switch",
       "unified": "~/.agents/skills",
       "ccSwitchHint": "Skills are stored in ~/.cc-switch/skills/ and synced to each app via symlink or copy.",
       "unifiedHint": "Skills are stored in ~/.agents/skills/, the Agent Skills open standard. Compatible tools (Claude Code, Codex, Gemini CLI, etc.) discover skills here natively.",
@@ -772,8 +772,8 @@
     },
     "configDirectoryOverride": "Configuration Directory Override (Advanced)",
     "configDirectoryDescription": "When using Claude Code or Codex in environments like WSL, you can manually specify the configuration directory to the one in WSL to keep provider data consistent with the main environment.",
-    "appConfigDir": "MaiAI Agent Configuration Directory",
-    "appConfigDirDescription": "Customize the storage location for MaiAI Agent configuration (point to cloud sync folder to enable config sync)",
+    "appConfigDir": "MaiAI Switch Configuration Directory",
+    "appConfigDirDescription": "Customize the storage location for MaiAI Switch configuration (point to cloud sync folder to enable config sync)",
     "browsePlaceholderApp": "e.g., C:\\Users\\Administrator\\.cc-switch",
     "claudeConfigDir": "Claude Code Configuration Directory",
     "claudeConfigDirDescription": "Override Claude configuration directory (settings.json). Custom directories store .claude.json (MCP) inside the directory; the default ~/.claude directory keeps Claude Code's split ~/.claude.json path.",
@@ -863,7 +863,7 @@
     "importFailedError": "Import config failed: {{message}}",
     "exportFailedError": "Export config failed:",
     "restartRequired": "Restart Required",
-    "restartRequiredMessage": "Modifying the MaiAI Agent configuration directory requires restarting the application to take effect. Restart now?",
+    "restartRequiredMessage": "Modifying the MaiAI Switch configuration directory requires restarting the application to take effect. Restart now?",
     "restartNow": "Restart Now",
     "restartLater": "Restart Later",
     "restartFailed": "Application restart failed, please manually close and reopen.",
@@ -980,7 +980,7 @@
     },
     "current": {
       "readFailed": "Could not read Pi's provider configuration",
-      "stateUnavailableHint": "Provider changes are disabled until MaiAI Agent can read Pi's provider configuration."
+      "stateUnavailableHint": "Provider changes are disabled until MaiAI Switch can read Pi's provider configuration."
     },
     "prompts": {
       "globalTab": "Global prompts",
@@ -1584,7 +1584,7 @@
     "headerName": "Header",
     "headerValue": "Value",
     "headerNamePlaceholder": "X-Title",
-    "headerValuePlaceholder": "MaiAI Agent",
+    "headerValuePlaceholder": "MaiAI Switch",
     "removeHeader": "Remove header",
     "noHeaders": "No custom headers configured",
     "extraOptions": "Extra Options",
@@ -1788,11 +1788,11 @@
     "modelsDevDefaultHint": "Showing the {{shown}} most recently released models (of {{total}}) — type to search all",
     "modelsDevAutoSync": {
       "title": "Automatic models.dev pricing sync",
-      "description": "When enabled, periodically fetch selected prices when MaiAI Agent launches and keep them in your local pricing file.",
+      "description": "When enabled, periodically fetch selected prices when MaiAI Switch launches and keep them in your local pricing file.",
       "enabled": "Enabled",
       "disabled": "Disabled",
       "enableConfirmTitle": "Enable automatic pricing sync?",
-      "enableConfirmMessage": "After enabling, MaiAI Agent will periodically update prices for the selected models from models.dev when it launches (at most once every 6 hours). Built-in and manually configured prices with the same model ID will be overwritten.",
+      "enableConfirmMessage": "After enabling, MaiAI Switch will periodically update prices for the selected models from models.dev when it launches (at most once every 6 hours). Built-in and manually configured prices with the same model ID will be overwritten.",
       "enableConfirmAction": "Enable automatic sync",
       "configure": "Choose models",
       "configureTitle": "Choose models for automatic pricing sync",
@@ -1913,7 +1913,7 @@
   },
   "dbUpgrade": {
     "title": "Database version is too new",
-    "description": "This database was created by a newer version of MaiAI Agent. Upgrade the app to continue. Upgrading will not delete your data.",
+    "description": "This database was created by a newer version of MaiAI Switch. Upgrade the app to continue. Upgrading will not delete your data.",
     "versionInfo": "Database v{{db}} · App supports v{{supported}}",
     "dbPath": "Database file",
     "checking": "Checking for available updates…",
@@ -1959,7 +1959,7 @@
       "deleteConfirm": "Are you sure you want to delete server \"{{id}}\"? This action cannot be undone.",
       "noServers": "No servers yet",
       "enabledApps": "Enabled Apps",
-      "noImportFound": "No MCP servers to import found. All servers are already managed by MaiAI Agent.",
+      "noImportFound": "No MCP servers to import found. All servers are already managed by MaiAI Switch.",
       "importSuccess": "Successfully imported {{count}} MCP servers",
       "searchPlaceholder": "Search MCP name, description, tag, or command...",
       "searchAriaLabel": "Search managed MCP servers",
@@ -2449,7 +2449,7 @@
     "installSuccess": "Skill {{name}} installed",
     "installFailed": "Failed to install",
     "uninstallSuccess": "Skill {{name}} uninstalled",
-    "uninstallPiPreserved": "Pi's copy could not be verified as MaiAI Agent-managed and was left in place: {{path}}",
+    "uninstallPiPreserved": "Pi's copy could not be verified as MaiAI Switch-managed and was left in place: {{path}}",
     "uninstallPiCleanupIncomplete": "Pi cleanup could not be completed. Check the Pi Skills directory manually for a leftover copy.",
     "uninstallFailed": "Failed to uninstall",
     "update": "Update",
@@ -2549,10 +2549,10 @@
     "noInstalledDescription": "Discover and install skills from repositories, or import existing skills",
     "discover": "Discover Skills",
     "import": "Import Existing",
-    "importDescription": "Select skills to import into MaiAI Agent unified management",
+    "importDescription": "Select skills to import into MaiAI Switch unified management",
     "importSuccess": "Successfully imported {{count}} skills",
     "importSelected": "Import Selected ({{count}})",
-    "noUnmanagedFound": "No skills to import found. All skills are already managed by MaiAI Agent.",
+    "noUnmanagedFound": "No skills to import found. All skills are already managed by MaiAI Switch.",
     "unmanagedAvailable": "Skills available to import",
     "foundIn": "Found in",
     "local": "Local",
@@ -2597,7 +2597,7 @@
   },
   "deeplink": {
     "confirmImport": "Confirm Import Provider",
-    "confirmImportDescription": "The following configuration will be imported from deep link into MaiAI Agent",
+    "confirmImportDescription": "The following configuration will be imported from deep link into MaiAI Switch",
     "importPrompt": "Import Prompt",
     "importPromptDescription": "Please confirm whether to import this system prompt",
     "importMcp": "Import MCP Servers",

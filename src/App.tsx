@@ -1342,7 +1342,7 @@ function App() {
                   <span className="maiai-brand-mark grid h-7 w-7 place-items-center rounded-lg">
                     <WandSparkles className="h-4 w-4" />
                   </span>
-                  MaiAI
+                  MaiAI Switch
                 </div>
                 <Button
                   variant="ghost"

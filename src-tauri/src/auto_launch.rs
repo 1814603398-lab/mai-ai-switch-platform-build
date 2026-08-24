@@ -17,7 +17,7 @@ fn get_macos_app_bundle_path(exe_path: &std::path::Path) -> Option<std::path::Pa
 
 /// 初始化 AutoLaunch 实例
 fn get_auto_launch() -> Result<AutoLaunch, AppError> {
-    let app_name = "MaiAI Agent";
+    let app_name = "MaiAI Switch";
     let exe_path =
         std::env::current_exe().map_err(|e| AppError::Message(format!("无法获取应用路径: {e}")))?;
 
@@ -77,24 +77,25 @@ mod tests {
     #[test]
     fn test_get_macos_app_bundle_path_valid() {
         let exe_path =
-            std::path::Path::new("/Applications/MaiAI Agent.app/Contents/MacOS/mai-ai-agent");
+            std::path::Path::new("/Applications/MaiAI Switch.app/Contents/MacOS/mai-ai-switch");
         let result = get_macos_app_bundle_path(exe_path);
         assert_eq!(
             result,
-            Some(std::path::PathBuf::from("/Applications/MaiAI Agent.app"))
+            Some(std::path::PathBuf::from("/Applications/MaiAI Switch.app"))
         );
     }
 
     #[cfg(target_os = "macos")]
     #[test]
     fn test_get_macos_app_bundle_path_with_spaces() {
-        let exe_path =
-            std::path::Path::new("/Users/test/My Apps/MaiAI Agent.app/Contents/MacOS/mai-ai-agent");
+        let exe_path = std::path::Path::new(
+            "/Users/test/My Apps/MaiAI Switch.app/Contents/MacOS/mai-ai-switch",
+        );
         let result = get_macos_app_bundle_path(exe_path);
         assert_eq!(
             result,
             Some(std::path::PathBuf::from(
-                "/Users/test/My Apps/MaiAI Agent.app"
+                "/Users/test/My Apps/MaiAI Switch.app"
             ))
         );
     }

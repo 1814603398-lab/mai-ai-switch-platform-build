@@ -1,6 +1,6 @@
 <div align="center">
 
-# MaiAI Agent
+# MaiAI Switch
 
 ### Claude Code、Claude Desktop、Codex、Gemini CLI、Grok Build、OpenCode、OpenClaw 和 Hermes Agent 的全方位管理工具
 
@@ -15,11 +15,11 @@
 
 </div>
 
-## 为什么选择 MaiAI Agent？
+## 为什么选择 MaiAI Switch？
 
 现代 AI 编程依赖于 Claude Code、Claude Desktop、Codex、Gemini CLI、Grok Build、OpenCode、OpenClaw 和 Hermes 等工具——但每个工具都有自己的配置格式。切换 API 供应商意味着手动编辑 JSON、TOML 或 `.env` 文件，而在多个工具之间缺乏一个统一管理 MCP, SKILLS 的方式。
 
-**MaiAI Agent** 为你提供一个桌面应用来管理所有支持的 AI 工具。无需手动编辑配置文件，你将获得一个可视化界面，一键将供应商导入应用，一键在不同的供应商之间进行切换，内置 50+ 供应商预设、统一的 MCP, SKILLS 管理以及系统托盘即时切换功能——所有操作都基于可靠的 SQLite 数据库和原子写入机制，保护你的配置不被损坏。
+**MaiAI Switch** 为你提供一个桌面应用来管理所有支持的 AI 工具。无需手动编辑配置文件，你将获得一个可视化界面，一键将供应商导入应用，一键在不同的供应商之间进行切换，内置 50+ 供应商预设、统一的 MCP, SKILLS 管理以及系统托盘即时切换功能——所有操作都基于可靠的 SQLite 数据库和原子写入机制，保护你的配置不被损坏。
 
 - **一个应用，八个工具** — 在单一界面中管理 Claude Code、Claude Desktop、Codex、Gemini CLI、Grok Build、OpenCode、OpenClaw 和 Hermes
 - **告别手动编辑** — 内置官方和常用工具预设，无需手动编辑 JSON 或 TOML
@@ -75,9 +75,9 @@
 ## 常见问题
 
 <details>
-<summary><strong>MaiAI Agent 支持哪些 AI 工具？</strong></summary>
+<summary><strong>MaiAI Switch 支持哪些 AI 工具？</strong></summary>
 
-MaiAI Agent 支持八个工具：**Claude Code**、**Claude Desktop**、**Codex**、**Gemini CLI**、**Grok Build**、**OpenCode**、**OpenClaw** 和 **Hermes**。每个工具都有专属的供应商预设和配置管理。
+MaiAI Switch 支持八个工具：**Claude Code**、**Claude Desktop**、**Codex**、**Gemini CLI**、**Grok Build**、**OpenCode**、**OpenClaw** 和 **Hermes**。每个工具都有专属的供应商预设和配置管理。
 
 </details>
 
@@ -91,14 +91,14 @@ MaiAI Agent 支持八个工具：**Claude Code**、**Claude Desktop**、**Codex*
 <details>
 <summary><strong>切换供应商之后我的插件配置怎么不见了？</strong></summary>
 
-MaiAI Agent 使用“通用配置片段”功能，在不同的供应商之间传递 Key 和请求地址之外的通用数据，您可以在“编辑供应商”菜单的“通用配置面板”里，点击“从当前供应商提取”，把所有的通用数据提取到通用配置中，之后在新建“供应商”的时候，只要勾选“应用通用配置”（默认勾选），就会把插件等数据写入到新的供应商配置中。您的所有配置项都会保存在运行本软件的时候，第一次导入的默认供应商里面，不会丢失。
+MaiAI Switch 使用“通用配置片段”功能，在不同的供应商之间传递 Key 和请求地址之外的通用数据，您可以在“编辑供应商”菜单的“通用配置面板”里，点击“从当前供应商提取”，把所有的通用数据提取到通用配置中，之后在新建“供应商”的时候，只要勾选“应用通用配置”（默认勾选），就会把插件等数据写入到新的供应商配置中。您的所有配置项都会保存在运行本软件的时候，第一次导入的默认供应商里面，不会丢失。
 
 </details>
 
 <details>
 <summary><strong>macOS 安装</strong></summary>
 
-MaiAI Agent macOS 版本已通过 Apple 代码签名和公证，可直接下载安装，无需额外操作。推荐使用 `.dmg` 安装包。
+MaiAI Switch macOS 版本已通过 Apple 代码签名和公证，可直接下载安装，无需额外操作。推荐使用 `.dmg` 安装包。
 
 </details>
 
@@ -135,7 +135,7 @@ MaiAI Agent macOS 版本已通过 Apple 代码签名和公证，可直接下载�
 AppImage 会强制 `GDK_BACKEND=x11`（走 XWayland）以规避历史上的原生 Wayland 崩溃。但在较新的 Wayland + NVIDIA 环境下，这会导致网页内容区点不动（标题栏按钮仍可点）、窗口缩放后黑屏。可用内置的逃生开关切回原生 Wayland：
 
 ```bash
-CC_SWITCH_GDK_BACKEND=wayland ./CC-Switch-*.AppImage
+CC_SWITCH_GDK_BACKEND=wayland ./MaiAI-Switch-*.AppImage
 ```
 
 如果你是从桌面图标启动的，请把它写进 `.desktop` 的 `Exec=` 行（如 `env CC_SWITCH_GDK_BACKEND=wayland /path/to/AppImage`），或在会话环境中设置。该变量是通用的：在 tiling Wayland 合成器（sway/Hyprland）下若出现点击失效，可反过来设 `CC_SWITCH_GDK_BACKEND=x11`。不设置则保持默认行为。
@@ -176,11 +176,11 @@ CC_SWITCH_GDK_BACKEND=wayland ./CC-Switch-*.AppImage
 
 ### Windows 用户
 
-从 [Releases](../../releases) 页面下载 `MaiAI-Agent-Windows-x64.zip`，其中包含 Windows 安装程序和 MSI 安装包。
+从 [Releases](../../releases) 页面下载 `MaiAI-Switch-Windows-x64.zip`，其中包含 Windows 安装程序和 MSI 安装包。
 
 ### macOS 用户
 
-从 [Releases](../../releases) 页面下载 `MaiAI-Agent-macOS-universal.zip`，其中包含通用架构 `.dmg` 和 `.app`。
+从 [Releases](../../releases) 页面下载 `MaiAI-Switch-macOS-universal.zip`，其中包含通用架构 `.dmg` 和 `.app`。
 
 > **注意**：当前 macOS 构建未进行 Apple 公证。首次启动时，macOS 可能需要在“隐私与安全性”中确认打开。
 
@@ -190,7 +190,7 @@ CC_SWITCH_GDK_BACKEND=wayland ./CC-Switch-*.AppImage
 
 ### Linux 用户
 
-下载 `MaiAI-Agent-Linux-x64.zip`，其中包含 `.AppImage`、`.deb` 和 `.rpm` 安装包。
+下载 `MaiAI-Switch-Linux-x64.zip`，其中包含 `.AppImage`、`.deb` 和 `.rpm` 安装包。
 
 > **Flatpak**：官方 Release 不包含 Flatpak 包。如需使用，可从 `.deb` 自行构建 — 参见 [`flatpak/README.md`](flatpak/README.md)。
 

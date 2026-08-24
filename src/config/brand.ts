@@ -1,4 +1,4 @@
-export const APP_NAME = "MaiAI Agent";
+export const APP_NAME = "MaiAI Switch";
 
 // Public project links belong to the maintained MaiAI repository.
 export const PROJECT_URL = "https://gitee.com/timimai/mai-ai-switch";

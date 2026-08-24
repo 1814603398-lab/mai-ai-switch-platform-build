@@ -4,7 +4,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "MaiAI Agent",
+        "title": "MaiAI Switch",
         "titleBarStyle": "Visible",
         "visible": false,
         "minWidth": 900,

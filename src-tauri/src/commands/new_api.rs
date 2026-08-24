@@ -15,7 +15,7 @@ fn normalize_endpoint(value: &str) -> Result<String, String> {
 
 fn client() -> Result<Client, String> {
     Client::builder()
-        .user_agent("MaiAI-Agent/1.0")
+        .user_agent("MaiAI-Switch/1.0")
         .connect_timeout(std::time::Duration::from_secs(10))
         .timeout(std::time::Duration::from_secs(30))
         .build()

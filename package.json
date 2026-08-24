@@ -1,7 +1,7 @@
 {
-  "name": "mai-ai-agent",
+  "name": "mai-ai-switch",
   "version": "3.20.0",
-  "description": "MaiAI Agent configuration workspace for Claude Code, Codex, OpenCode and more",
+  "description": "MaiAI Switch configuration workspace for Claude Code, Codex, OpenCode and more",
   "type": "module",
   "scripts": {
     "dev": "pnpm tauri dev",
