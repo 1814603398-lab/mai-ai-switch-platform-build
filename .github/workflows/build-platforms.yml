@@ -57,7 +57,7 @@ jobs:
           Compress-Archive -Path "$deliveryRoot/*" -DestinationPath "src-tauri/target/delivery/MaiAI-Switch-Windows-x64.zip" -Force
 
       - name: Upload Windows installers and archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MaiAI-Switch-Windows-x64
           path: |
@@ -117,7 +117,7 @@ jobs:
           ditto -c -k "$delivery_root" "$delivery_root/../MaiAI-Switch-macOS-universal.zip"
 
       - name: Upload macOS packages and archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MaiAI-Switch-macOS-universal
           path: |
@@ -180,7 +180,7 @@ jobs:
           (cd "$delivery_root" && zip -j "../MaiAI-Switch-Linux-x64.zip" ./*)
 
       - name: Upload Linux packages and archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MaiAI-Switch-Linux-x64
           path: |
