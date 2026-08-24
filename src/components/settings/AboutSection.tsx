@@ -41,7 +41,7 @@ import { isWindows } from "@/lib/platform";
 import { isUpdateAvailable } from "@/lib/version";
 import { ToolUpgradeConfirmDialog } from "./ToolUpgradeConfirmDialog";
 import { ToolInstallRow } from "./ToolInstallRow";
-import { APP_NAME, PROJECT_URL, RELEASES_URL } from "@/config/brand";
+import { APP_NAME, RELEASES_URL, WEBSITE_URL } from "@/config/brand";
 
 interface AboutSectionProps {
   isPortable: boolean;
@@ -450,9 +450,7 @@ export function AboutSection({ isPortable }: AboutSectionProps) {
         return;
       }
 
-      await settingsApi.openExternal(
-        `${RELEASES_URL}/tag/${displayVersion}`,
-      );
+      await settingsApi.openExternal(`${RELEASES_URL}/tag/${displayVersion}`);
     } catch (error) {
       console.error("[AboutSection] Failed to open release notes", error);
       toast.error(t("settings.openReleaseNotesFailed"));
@@ -901,11 +899,11 @@ export function AboutSection({ isPortable }: AboutSectionProps) {
               type="button"
               variant="outline"
               size="sm"
-              onClick={() => settingsApi.openExternal(PROJECT_URL)}
+              onClick={() => settingsApi.openExternal(WEBSITE_URL)}
               className="h-8 gap-1.5 text-xs"
             >
               <Globe className="h-3.5 w-3.5" />
-              {t("settings.projectHome", { defaultValue: "项目主页" })}
+              {t("settings.officialWebsite")}
             </Button>
             <Button
               type="button"
